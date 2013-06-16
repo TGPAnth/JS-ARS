@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<script type="text/javascript" src="draw.js"></script>
+</head>
+<body onLoad='start()'>
+    <div>
+        <canvas id="fuzzif_level" width="600" height="500"></canvas>
+        <br>
+        <select id="fls1" size="1">
+            <option value="1">Треугольный</option>
+            <option value="2">Трапециевидный</option>
+            <option selected="selected" value="3">Z-линейный</option>
+            <option value="4">S-линейный</option>
+        </select>
+        <input id="fl11" type="text" size="2" value="2">
+        <input id="fl12" type="text" size="2" value="4">
+        <input id="fl13" type="text" size="2" value="0">
+        <input id="fl14" type="text" size="2" value="0">
+        <br>
+        <select id="fls2" size="1">
+            <option value="1">Треугольный</option>
+            <option selected="selected" value="2">Трапециевидный</option>
+            <option value="3">Z-линейный</option>
+            <option value="4">S-линейный</option>
+        </select>
+        <input id="fl21" type="text" size="2" value="2">
+        <input id="fl22" type="text" size="2" value="4">
+        <input id="fl23" type="text" size="2" value="6">
+        <input id="fl24" type="text" size="2" value="8">
+        <br>
+        <select id="fls3" size="1">
+            <option value="1">Треугольный</option>
+            <option value="2">Трапециевидный</option>
+            <option value="3">Z-линейный</option>
+            <option selected="selected" value="4">S-линейный</option>
+        </select>
+        <input id="fl31" type="text" size="2" value="0">
+        <input id="fl32" type="text" size="2" value="0">
+        <input id="fl33" type="text" size="2" value="6">
+        <input id="fl34" type="text" size="2" value="8">
+        <br>
+            <input id = 'flb1' type="button" value="Check" onclick="redraw();"> 
+			Текущий уровень: 
+			<input id="ln" type="text" size="2" value="2.5">
+    </div>
+	
+	 <div>
+        <canvas id="fuzzif_veloc" width="600" height="500"></canvas>
+        <br>
+        <select id="fvs1" size="1">
+            <option value="1">Треугольный</option>
+            <option value="2">Трапециевидный</option>
+            <option selected="selected" value="3">Z-линейный</option>
+            <option value="4">S-линейный</option>
+        </select>
+        <input id="fv11" type="text" size="2" value="0.2">
+        <input id="fv12" type="text" size="2" value="0.3">
+        <input id="fv13" type="text" size="2" value="0">
+        <input id="fv14" type="text" size="2" value="0">
+        <br>
+        <select id="fvs2" size="1">
+            <option value="1">Треугольный</option>
+            <option selected="selected" value="2">Трапециевидный</option>
+            <option value="3">Z-линейный</option>
+            <option value="4">S-линейный</option>
+        </select>
+        <input id="fv21" type="text" size="2" value="0.15">
+        <input id="fv22" type="text" size="2" value="0.25">
+        <input id="fv23" type="text" size="2" value="0.35">
+        <input id="fv24" type="text" size="2" value="0.45">
+        <br>
+        <select id="fvs3" size="1">
+            <option value="1">Треугольный</option>
+            <option value="2">Трапециевидный</option>
+            <option value="3">Z-линейный</option>
+            <option selected="selected" value="4">S-линейный</option>
+        </select>
+        <input id="fv31" type="text" size="2" value="0">
+        <input id="fv32" type="text" size="2" value="0">
+        <input id="fv33" type="text" size="2" value="0.3">
+        <input id="fv34" type="text" size="2" value="0.4">
+        <br>
+            <input id = 'fvb1' type="button" value="Check" oncklick='redraw();'>
+			Текущий расход: 
+			<input id="vn" type="text" size="2" value="0.4">
+    </div>
+	<div>
+        <canvas id="fuzzif_inp1" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp2" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp3" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp4" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp5" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp6" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp7" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp8" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp9" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp10" width="600" height="500"></canvas>
+        <br>
+    </div>
+	
+	<br><br>
+	
+	<div>
+        <canvas id="fuzzif_inp11" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp12" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp13" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp14" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp15" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp16" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp17" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp18" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp19" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp20" width="600" height="500"></canvas>
+        <br>
+    </div>
+	<div>
+        <canvas id="fuzzif_inp21" width="600" height="500"></canvas>
+        <br>
+    </div>
+</body>
+</html>

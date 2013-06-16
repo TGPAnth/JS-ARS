@@ -1,0 +1,118 @@
+FL = function(){	
+	var canvas = document.getElementById("fuzzif_level");
+    var ctx = canvas.getContext("2d");
+    var wd = canvas.width
+    var hg = canvas.height
+    var xmax = 10
+    var ymax = 1
+    var maxgridx = 10
+    var maxgridy = 10
+    var dcoordx = Math.floor(wd/maxgridx)
+    var dcoordy = Math.floor(hg/maxgridy)
+    
+    //1 - Triangle, 2 - Trap, 3 - Z, 4 - S
+    function get_type(a){
+     return document.getElementById("fls"+a.toString()).selectedIndex+1
+    }
+	function get_val(a){
+		return document.getElementById("fl"+a.toString()).value
+	}
+    function show(a){
+        document.getElementById("fl"+a.toString()).type = "text"       
+    }
+    function hide(a){
+        document.getElementById("fl"+a.toString()).type = "disabled"       
+    }
+    function check_inputs(){
+        for(var i = 1;i<=3;i+=1){
+         var gt = get_type(i).toString()
+         var stri = i.toString()
+         if (gt == "1"){
+             show(stri+"1"); show(stri+"2"); show(stri+"3"); hide(stri+"4");         
+         }else if(gt == "2"){
+             show(stri+"1"); show(stri+"2"); show(stri+"3"); show(stri+"4")
+         }else if(gt == "3"){
+             show(stri+"1"); show(stri+"2"); hide(stri+"3"); hide(stri+"4")
+         }else if(gt == "4"){
+             hide(stri+"1"); hide(stri+"2"); show(stri+"3"); show(stri+"4")
+         }
+        }
+    }
+    
+    function draw(){
+        check_inputs()
+        for(var i = 1;i<=3;i+=1){
+		ctx.lineWidth=1;
+        ctx.beginPath();
+         var gt = get_type(i).toString()
+         var stri = i.toString()
+         if (gt == "1"){ // Triangle
+             ctx.moveTo(0, hg);
+			 ctx.lineTo(get_val(stri+"1")*dcoordx,hg); 
+			 ctx.lineTo(get_val(stri+"2")*dcoordx,0);
+			 ctx.lineTo(get_val(stri+"3")*dcoordx,hg);
+         }else if(gt == "2"){ //Trap
+             show(stri+"1"); 
+			 show(stri+"2"); 
+			 show(stri+"3"); 
+			 show(stri+"4")
+         }else if(gt == "3"){ // Z
+             show(stri+"3"); 
+			 show(stri+"4")
+         }else if(gt == "4"){ // S
+             show(stri+"1"); 
+			 show(stri+"2")
+         }
+		ctx.strokeStyle = "#000";
+        ctx.stroke();
+        }
+    }
+    
+    function draw_coordline(){
+        // background
+        ctx.lineWidth=0.5;
+        ctx.rect(0,0,wd,hg);
+        ctx.fillStyle="white";
+        ctx.fill();
+        ctx.beginPath();
+        // grid
+        for (var x = 0.5; x <= wd; x += dcoordx) {
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, hg);
+        } 
+        for (var y = 0.5; y <= hg; y += dcoordy) {
+            ctx.moveTo(0, y);
+            ctx.lineTo(wd, y);
+        }
+        ctx.strokeStyle = "#aaa";
+        ctx.stroke();
+        // coordinate lines
+        ctx.lineWidth=1;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, hg);
+        ctx.moveTo(0, hg);
+        ctx.lineTo(wd, hg);
+        ctx.strokeStyle = "#a00";
+        ctx.stroke();
+        return 0
+    }
+   
+	function do_it(){
+		alert(document.innerHTML())
+		check_inputs()
+		draw_coordline()
+		draw()
+	}
+
+}
+
+start = {
+	alert("2")
+	alert(document.innerHTML())
+	function do_it(){
+		ofl = new FL()
+		ofl.do_it()
+	}
+}
+//run_fl()
